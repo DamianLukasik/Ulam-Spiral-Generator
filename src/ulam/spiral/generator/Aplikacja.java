@@ -8,6 +8,7 @@ package ulam.spiral.generator;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Aplikacja extends javax.swing.JFrame {
         
         center = new Point(PnL_Plansza.getHeight()/2, PnL_Plansza.getWidth()/2);
         odstep = 2;
+        Primes = new ArrayList<Integer>();
     }
 
     /**
@@ -119,6 +121,8 @@ public class Aplikacja extends javax.swing.JFrame {
             if(IsFirstNumber(number))
             {                
                 g.drawRect( center.x, center.y, 1, 1 );
+                Primes.add(number);
+            //    System.out.println(Primes.size());
             }  
             
             number++;
@@ -135,6 +139,8 @@ public class Aplikacja extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private ArrayList<Integer> Primes;
+     
     private Boolean IsFirstNumber(int num)
     {
         int a = 2;
@@ -142,8 +148,9 @@ public class Aplikacja extends javax.swing.JFrame {
         int w = -1;
         
         for(;a<=b;a++)
-        {            
+        {                 
             w = num%a;
+        //    System.out.println(w+"="+num+"%"+a);
         //    System.out.println(""+w+" = "+num+"/"+a);
             if(w==0)
             {
